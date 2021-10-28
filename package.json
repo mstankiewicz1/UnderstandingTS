@@ -1,0 +1,25 @@
+{
+  "name": "understandingts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstankiewicz1/UnderstandingTS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstankiewicz1/UnderstandingTS/issues"
+  },
+  "homepage": "https://github.com/mstankiewicz1/UnderstandingTS#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
