@@ -1,46 +1,55 @@
 "use strict";
-// const userName = 'Max';
-// // userName = 'Maxymilian';
-// let age = 30;
-// age = 29;
-// function add(a: number, b: number) {
-//   let result;
-//   result = a + b;
-//   return result;
-// };
-// if(age > 20) {
-//   var isOld = true;
-// };
-// console.log(isOld);
-// const add = (a: number, b: number = 1) => {
-//   return a + b;
-// };
-// console.log(add(5));
-// const printOutput: (a: number | string) => void = output =>  console.log(output);
-// const button = document.querySelector('button');
-// if(button) {
-//   button.addEventListener('click', (event) => console.log(event));
-// };
-// printOutput(add(2,7));
-const hobbies = ['Sports', 'Cooking'];
-console.log(hobbies[0]);
-const activeHobbies = ['Hiking'];
-activeHobbies.push(...hobbies);
-const person = {
-    firstName: 'Max',
-    age: 30
-};
-const copiedPerson = Object.assign({}, person);
-// console.log(copiedPerson);
-const add = (...numbers) => {
-    let result = 0;
-    return numbers.reduce((curResult, curValue) => {
-        return curResult + curValue;
-    }, 0);
-};
-const addedNumbers = add(5, 10, 2, 3.7);
-console.log(addedNumbers);
-const [hobby1, hobby2, ...remainingHobbies] = hobbies;
-console.log(hobbies, hobby1, hobby2);
-const { firstName: userName, age } = person;
-console.log(userName, age, person);
+class Department {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        // private id: string;
+        // private name: string;
+        this.employees = [];
+        // this.id = id;
+        // this.name = n;
+    }
+    describe() {
+        console.log(`Department (${this.id}): ${this.name}`);
+    }
+    addEmployee(employee) {
+        // this.employees.push(employee);
+    }
+    printEmployeeInformation() {
+        console.log(this.employees.length);
+        console.log(this.employees);
+    }
+}
+class ITDepartment extends Department {
+    constructor(id, admins) {
+        super(id, 'IT');
+        this.admins = admins;
+    }
+}
+;
+class AccountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, 'Accounting');
+        this.reports = reports;
+    }
+    addReport(text) {
+        this.reports.push(text);
+    }
+    printReports() {
+        console.log(this.reports);
+    }
+}
+;
+const it = new ITDepartment('d1', ['Max']);
+it.addEmployee('Max');
+it.addEmployee('Manu');
+// accounting.employees[2] = 'Anna';
+it.describe();
+it.name = 'NEW NAME';
+it.printEmployeeInformation();
+console.log(it);
+const accounting = new AccountingDepartment('d2', []);
+accounting.addReport('Something went wrong...');
+accounting.printReports();
+// const accountingCopy = { name: 's', describe: accounting.describe };
+// accountingCopy.describe();

@@ -112,6 +112,7 @@
     "optionConfig.ts",
     "analytics.ts",
     "user.ts",
+    "spreadOperator.ts",
     "node_modules",
   ]
 }

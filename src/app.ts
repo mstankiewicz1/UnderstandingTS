@@ -1,66 +1,66 @@
-// const userName = 'Max';
-// // userName = 'Maxymilian';
-// let age = 30;
+class Department {
+  // private id: string;
+  // private name: string;
+  private employees: string[] = [];
 
-// age = 29;
+  constructor(private readonly id: string, public name: string) {
+    // this.id = id;
+    // this.name = n;
+  }
 
-// function add(a: number, b: number) {
-//   let result;
-//   result = a + b;
-//   return result;
-// };
+  describe(this: Department) {
+    console.log(`Department (${this.id}): ${this.name}`);
+  }
 
-// if(age > 20) {
-//   var isOld = true;
-// };
+  addEmployee(employee: string) {
+    // this.employees.push(employee);
+  }
 
-// console.log(isOld);
+  printEmployeeInformation () {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
+}
 
-// const add = (a: number, b: number = 1) => {
-//   return a + b;
-// };
-
-// console.log(add(5));
-
-// const printOutput: (a: number | string) => void = output =>  console.log(output);
-
-// const button = document.querySelector('button');
-
-// if(button) {
-//   button.addEventListener('click', (event) => console.log(event));
-// };
-
-// printOutput(add(2,7));
-
-const hobbies = ['Sports', 'Cooking'];
-console.log(hobbies[0]);
-const activeHobbies = ['Hiking'];
-
-activeHobbies.push(...hobbies);
-
-const person = {
-  firstName: 'Max',
-  age: 30
+class ITDepartment extends Department {
+  admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, 'IT');
+    this.admins = admins;
+  }
 };
 
-const copiedPerson = { ...person };
-// console.log(copiedPerson);
-
-const add = (...numbers: number[]) => {
-  let result = 0;
-  return numbers.reduce((curResult, curValue) => {
-    return curResult + curValue;
-  }, 0)
-
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, 'Accounting');
+  }
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+  printReports() {
+    console.log(this.reports);
+  }
 };
 
-const addedNumbers = add(5, 10, 2, 3.7);
-console.log(addedNumbers);
+const it = new ITDepartment('d1', ['Max']);
 
+it.addEmployee('Max');
+it.addEmployee('Manu');
 
-const [hobby1, hobby2, ...remainingHobbies] = hobbies;
-console.log(hobbies, hobby1, hobby2);
+// accounting.employees[2] = 'Anna';
 
-const { firstName: userName, age } = person;
+it.describe();
+it.name = 'NEW NAME';
+it.printEmployeeInformation();
 
-console.log(userName, age, person);
+console.log(it);
+
+const accounting = new AccountingDepartment('d2', []);
+
+accounting.addReport('Something went wrong...');
+
+accounting.printReports();
+
+// const accountingCopy = { name: 's', describe: accounting.describe };
+
+// accountingCopy.describe();
